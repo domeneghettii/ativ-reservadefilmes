@@ -82,6 +82,10 @@ SELECT
         q.tipo_cama,
         q.bloco,
 
+INSERT INTO quartos (servico_quarto, tipo_cama, bloco) VALUES 
+('Trocar Roupa de Cama', 'Cama Cairo', 5),
+('Gerenciar Pedidos', 'Cama Jack', 6);  
+
 FROM 
     reservas r
 
@@ -91,7 +95,11 @@ FROM
 JOIN
     quartos q ON r.id_quarto = q.id_quarto
 
-    
+
+
+
+
+
 
 
 
