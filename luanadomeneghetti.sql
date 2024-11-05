@@ -75,7 +75,23 @@ JOIN
 JOIN
     quartos q ON r.id_quarto = q.id_quarto
 
-WHERE
+
+SELECT
+        r.id_reserva,
+        q.servico_quarto,
+        q.tipo_cama,
+        q.bloco,
+
+FROM 
+    reservas r
+
+    JOIN
+    hospedes h ON r.id_hospede = h.id_hospede
+
+JOIN
+    quartos q ON r.id_quarto = q.id_quarto
+
+    
 
 
 
