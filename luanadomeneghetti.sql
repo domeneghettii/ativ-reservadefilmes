@@ -43,10 +43,38 @@ INSERT INTO quartos (servico_quarto, tipo_cama, bloco) VALUES
 ('Organização Geral', 'Cama Padma', 1),
 ('Limpeza Diária', 'Cama Nórdica', 2),
 ('Camareira', 'Cama Ribas', 3),
-('Concierge', 'Cama Ellen', 4);
+('Concierge', 'Cama Ellen', 4),
+('Trocar Roupa de Cama', 'Cama Cairo', 5),
+('Gerenciar Pedidos', 'Cama Jack', 6);
+
 
 INSERT INTO reservas (data_inicio, data_termino, data_reserva, horario_reserva, id_hospede, id_quarto) VALUES
 ('2024-11-10', '2024-11-14', '2024-10-28', '09:45', 1, 1),
 ('2024-12-19', '2024-12-23', '2024-11-30', '13:00', 2, 2),
 ('2024-12-25', '2024-12-28', '2024-12-05', '11:15', 3, 3),
 ('2024-01-18', '2024-01-22', '2024-12-31', '16:', 4, 4);
+
+SELECT
+        r.id_reserva,
+        h.nome AS hospede,
+        h.email,
+        q.servico_quarto,
+        q.tipo_cama,
+        q.bloco,
+        r.data_inicio,
+        r.data_termino,
+        r.data_reserva,
+        r.horario_reserva
+
+FROM
+    reservas r
+
+JOIN
+    hospedes h ON r.id_hospede = h.id_hospede
+
+JOIN
+    quartos q ON r.id_quarto = q.id_quarto
+
+WHERE
+    h.id_hospede = 1;
+
