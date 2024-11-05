@@ -76,5 +76,5 @@ JOIN
     quartos q ON r.id_quarto = q.id_quarto
 
 WHERE
-    h.id_hospede = 1;
+
 
