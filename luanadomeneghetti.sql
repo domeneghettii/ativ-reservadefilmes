@@ -95,6 +95,28 @@ FROM
 JOIN
     quartos q ON r.id_quarto = q.id_quarto
 
+    SELECT
+    r.id_reserva,
+        h.nome AS hospede,
+        h.email,
+        q.servico_quarto,
+        q.tipo_cama,
+        q.bloco,
+        r.data_inicio,
+        r.data_termino,
+        r.data_reserva,
+        r.horario_reserva
+
+FROM 
+    quartos quartos
+
+    LEFT JOIN
+        reservas r reservas ON r.id_quarto = reservas.id_quarto
+        
+    LEFT JOIN
+        hospedes h ON r.id_hospede = hospedes.id_hospede;
+            
+
 
 
 
